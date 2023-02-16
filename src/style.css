@@ -1,1 +1,40 @@
+h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  text-align: left;
+  padding: 20px;
+  border: 1px solid rgb(75, 121, 141);
+  border-radius: 5px;
+}
 
+h2 {
+  font: bold;
+  font-size: 40px;
+  line-height: 30px;
+  margin-bottom: 0;
+}
+ul {
+  margin: 10px 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 20px;
+}
+.weatherApp-wrapper {
+  max-width: 700px;
+  margin: 30px auto;
+}
+.weatherApp {
+  padding: 20px;
+  background-image: linear-gradient(
+    to top,
+    rgb(124, 169, 188) 0%,
+    rgb(201, 207, 209) 100%
+  );
+  border: 1px solid rgb(75, 121, 141);
+  border-radius: 5px;
+}
