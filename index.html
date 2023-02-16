@@ -15,6 +15,65 @@
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
+    <div class="container">
+      <div class="weatherApp-wrapper">
+        <div class="weatherApp">
+          <h1>Find a forecast</h1>
+          <br />
+          <form>
+            <input type="search" placeholder="Enter a City Name" />
+            <input type="submit" value="Search" />
+            <input type="submit" value="Current" />
+          </form>
+          <br />
+          <div class="row">
+            <div class="col-6">
+              <div class="card" style="width: 18rem">
+                <div class="card-body">
+                  <h2><strong> City</strong></h2>
+                  <div class="row">
+                    <div class="col-6">
+                      <ul>
+                        <li>Day & Time</li>
+                        <li>Description</li>
+                        <li>12°C | °F</li>
+                      </ul>
+                    </div>
+                    <div class="col-6">
+                      <span>
+                        <img
+                          src="https://easydrawingguides.com/wp-content/uploads/2017/06/how-to-draw-a-sun-featured-image-1200.png"
+                          width="100px"
+                          alt="Clear"
+                      /></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="card" style="width: 18rem">
+                <div class="card-body">
+                  <ul>
+                    <li>Humidity</li>
+                    <li>Wind</li>
+                    <li>Pressure</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <small>
+          <a
+            href="https://github.com/Ekaterina870/vanilla-weather-app"
+            target="_blank"
+            >Open-source code</a
+          >
+          by Ekaterina Volkova</small
+        >
+      </div>
+    </div>
     <script src="src/app.js"></script>
   </body>
 </html>
