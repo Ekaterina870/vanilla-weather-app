@@ -50,6 +50,19 @@ function showTemperature(response) {
     .setAttribute("alt", response.data.condition.description);
 }
 
-let apiKey = "aa4349d1502cfb42ae79dd3817ceotf1";
-let apiURL = `https://api.shecodes.io/weather/v1/current?query=Lisbon&key=${apiKey}&units=metric`;
-axios.get(apiURL).then(showTemperature);
+function search(city) {
+  let apiKey = "aa4349d1502cfb42ae79dd3817ceotf1";
+
+  let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiURL).then(showTemperature);
+}
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
+search("London");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);

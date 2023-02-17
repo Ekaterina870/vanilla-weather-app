@@ -26,8 +26,14 @@
         <div class="weatherApp">
           <h1>Find a forecast</h1>
           <br />
-          <form>
-            <input type="search" placeholder="Enter a City Name" />
+          <form id="search-form">
+            <input
+              type="search"
+              placeholder="Enter a City Name"
+              autocomplete="off"
+              autofocus="on"
+              id="city-input"
+            />
             <input type="submit" value="Search" />
             <input type="submit" value="Current" />
           </form>
