@@ -47,9 +47,9 @@ li:first-letter {
   border-radius: 5px;
 }
 .weather-icon img {
+  max-width: 100%;
   margin: 10px;
-  height: 64px;
-  width: 64px;
+  height: 100px;
 }
 .weather-temperature strong {
   font-family: "PT Mono", monospace;
