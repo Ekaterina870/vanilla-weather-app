@@ -36,15 +36,15 @@
             <div class="col-6">
               <div class="card" style="width: 18rem">
                 <div class="card-body">
-                  <h2><strong> City</strong></h2>
+                  <h2><strong id="city"></strong></h2>
                   <div class="row">
                     <div class="col-6">
                       <ul>
                         <li>Day & Time</li>
-                        <li>Description</li>
+                        <li id="description"></li>
                         <li>
                           <div class="weather-temperature">
-                            <strong>12</strong>
+                            <strong id="temperature"></strong>
                             <span class="units">°C | <a href="#">°F</a></span>
                           </div>
                         </li>
@@ -68,9 +68,12 @@
               <div class="card" style="width: 18rem">
                 <div class="card-body">
                   <ul>
-                    <li>Humidity</li>
-                    <li>Wind</li>
-                    <li>Pressure</li>
+                    <li>
+                      Feels like: <span id="feels-like"></span>°C |
+                      <a href="#">°F</a>
+                    </li>
+                    <li>Humidity: <span id="humidity"></span>%</li>
+                    <li>Wind: <span id="wind"></span>km/h</li>
                   </ul>
                 </div>
               </div>
