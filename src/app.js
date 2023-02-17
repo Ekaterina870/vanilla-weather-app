@@ -23,6 +23,7 @@ function formatDate(timestamp) {
 
 function showTemperature(response) {
   celsiusTemperature = response.data.temperature.current;
+  celsiusFeelsLikeTemperature = response.data.temperature.feels_like;
   document.querySelector("#temperature").innerHTML =
     Math.round(celsiusTemperature);
 
@@ -30,8 +31,9 @@ function showTemperature(response) {
   document.querySelector("#description").innerHTML =
     response.data.condition.description;
   document.querySelector("#feels-like").innerHTML = Math.round(
-    response.data.temperature.feels_like
+    celsiusFeelsLikeTemperature
   );
+
   document.querySelector("#humidity").innerHTML =
     response.data.temperature.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
@@ -80,6 +82,24 @@ function showCelsiusTemperature(event) {
     Math.round(celsiusTemperature);
 }
 
+function showFeelsLikeFahrenheitTemperature(event) {
+  event.preventDefault();
+  feelsLikeCelsius.classList.remove("active");
+  feelsLikeFahrenheit.classList.add("active");
+  let fahrenheitTemperature = (celsiusFeelsLikeTemperature * 9) / 5 + 32;
+  document.querySelector("#feels-like").innerHTML = Math.round(
+    fahrenheitTemperature
+  );
+}
+function showFeelsLikeCelsiusTemperature(event) {
+  event.preventDefault();
+  feelsLikeCelsius.classList.add("active");
+  feelsLikeFahrenheit.classList.remove("active");
+  document.querySelector("#feels-like").innerHTML = Math.round(
+    celsiusFeelsLikeTemperature
+  );
+}
+
 function searchLocation(position) {
   let apiKey = "aa4349d1502cfb42ae79dd3817ceotf1";
   let apiURL = `https://api.shecodes.io/weather/v1/current?lat=${position.coords.latitude}&lon=${position.coords.longitude}&key=aa4349d1502cfb42ae79dd3817ceotf1&units=metric`;
@@ -91,6 +111,7 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 let celsiusTemperature = null;
+let celsiusFeelsLikeTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
@@ -101,7 +122,15 @@ fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemperature);
 
+let feelsLikeFahrenheit = document.querySelector("#feels-like-fahrenheit");
+feelsLikeFahrenheit.addEventListener(
+  "click",
+  showFeelsLikeFahrenheitTemperature
+);
+let feelsLikeCelsius = document.querySelector("#feels-like-celsius");
+feelsLikeCelsius.addEventListener("click", showFeelsLikeCelsiusTemperature);
+
 let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-search("London");
+search("Paris");
