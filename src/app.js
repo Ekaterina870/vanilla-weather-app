@@ -61,8 +61,21 @@ function handleSubmit(event) {
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
+function searchLocation(position) {
+  let apiKey = "aa4349d1502cfb42ae79dd3817ceotf1";
+  let apiURL = `https://api.shecodes.io/weather/v1/current?lat=${position.coords.latitude}&lon=${position.coords.longitude}&key=aa4349d1502cfb42ae79dd3817ceotf1&units=metric`;
+  axios.get(apiURL).then(showTemperature);
+}
 
-search("London");
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let currentLocationButton = document.querySelector("#current-location");
+currentLocationButton.addEventListener("click", getCurrentLocation);
+
+search("London");
