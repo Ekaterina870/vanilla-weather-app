@@ -39,6 +39,15 @@ function showTemperature(response) {
   document.querySelector("#date").innerHTML = formatDate(
     response.data.time * 1000
   );
+  document
+    .querySelector("#icon")
+    .setAttribute(
+      "src",
+      `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+    );
+  document
+    .querySelector("#icon")
+    .setAttribute("alt", response.data.condition.description);
 }
 
 let apiKey = "aa4349d1502cfb42ae79dd3817ceotf1";
