@@ -22,16 +22,15 @@ function formatDate(timestamp) {
 }
 
 function showTemperature(response) {
-  celsiusTemperature = response.data.temperature.current;
-  celsiusFeelsLikeTemperature = response.data.temperature.feels_like;
-  document.querySelector("#temperature").innerHTML =
-    Math.round(celsiusTemperature);
+  document.querySelector("#temperature").innerHTML = Math.round(
+    response.data.temperature.current
+  );
 
   document.querySelector("#city").innerHTML = response.data.city;
   document.querySelector("#description").innerHTML =
     response.data.condition.description;
   document.querySelector("#feels-like").innerHTML = Math.round(
-    celsiusFeelsLikeTemperature
+    response.data.temperature.feels_like
   );
 
   document.querySelector("#humidity").innerHTML =
@@ -64,41 +63,6 @@ function handleSubmit(event) {
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
-function showFahrenheitTemperature(event) {
-  event.preventDefault();
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  document.querySelector("#temperature").innerHTML = Math.round(
-    fahrenheitTemperature
-  );
-}
-function showCelsiusTemperature(event) {
-  event.preventDefault();
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-
-  document.querySelector("#temperature").innerHTML =
-    Math.round(celsiusTemperature);
-}
-
-function showFeelsLikeFahrenheitTemperature(event) {
-  event.preventDefault();
-  feelsLikeCelsius.classList.remove("active");
-  feelsLikeFahrenheit.classList.add("active");
-  let fahrenheitTemperature = (celsiusFeelsLikeTemperature * 9) / 5 + 32;
-  document.querySelector("#feels-like").innerHTML = Math.round(
-    fahrenheitTemperature
-  );
-}
-function showFeelsLikeCelsiusTemperature(event) {
-  event.preventDefault();
-  feelsLikeCelsius.classList.add("active");
-  feelsLikeFahrenheit.classList.remove("active");
-  document.querySelector("#feels-like").innerHTML = Math.round(
-    celsiusFeelsLikeTemperature
-  );
-}
 
 function searchLocation(position) {
   let apiKey = "aa4349d1502cfb42ae79dd3817ceotf1";
@@ -110,25 +74,9 @@ function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
-let celsiusTemperature = null;
-let celsiusFeelsLikeTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", showCelsiusTemperature);
-
-let feelsLikeFahrenheit = document.querySelector("#feels-like-fahrenheit");
-feelsLikeFahrenheit.addEventListener(
-  "click",
-  showFeelsLikeFahrenheitTemperature
-);
-let feelsLikeCelsius = document.querySelector("#feels-like-celsius");
-feelsLikeCelsius.addEventListener("click", showFeelsLikeCelsiusTemperature);
 
 let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getCurrentLocation);

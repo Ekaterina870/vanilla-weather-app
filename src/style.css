@@ -71,11 +71,7 @@ li:first-letter {
 .card {
   background-color: rgb(228, 225, 222);
 }
-.active {
-  color: black;
-  cursor: default;
-  text-decoration: none;
-}
+
 .weather-forecast {
   margin-top: 10px;
   text-align: center;
