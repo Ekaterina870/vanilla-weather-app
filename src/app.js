@@ -52,6 +52,33 @@ function showTemperature(response) {
     .setAttribute("alt", response.data.condition.description);
 }
 
+function showForecast() {
+  let forecastElement = document.querySelector("#weather-forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+   
+      <div class="col-2">
+        <div class="forecast-date">${day}</div>
+        <img
+          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+          width="30"
+        />
+        <div class="forecast-temperature">
+          <span class="forecast-temperature-max"> 13°</span>
+          <span class="forecast-temperature-min">9°</span>
+        </div>
+      </div>
+    `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function search(city) {
   let apiKey = "aa4349d1502cfb42ae79dd3817ceotf1";
 
@@ -74,6 +101,8 @@ function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
+
+showForecast();
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
