@@ -44,7 +44,7 @@ function showForecast(response) {
           src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
             forecastDay.condition.icon
           }.png"
-          width="30"
+          width="40"
         />
         <div class="forecast-temperature">
           <span class="forecast-temperature-max"> ${Math.round(

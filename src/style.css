@@ -7,7 +7,7 @@ h3 {
 h1,
 h3 {
   font-weight: bold;
-  text-align: left;
+  text-align: center;
   padding: 20px;
   border: 1px solid rgb(75, 121, 141);
   border-radius: 5px;
@@ -84,5 +84,5 @@ li:first-letter {
 }
 
 .forecast-temperature-min {
-  opacity: 0.5;
+  opacity: 0.8;
 }
